@@ -6,7 +6,6 @@ import argparse
 
 def main(args):
   model_path = args.model_path
-  model_name = args.model_name
   prompt_path = args.prompt_path
   model_result_path = args.model_result_path
 
@@ -15,12 +14,8 @@ def main(args):
     data = json.load(f)
   prompts = []
   for key, value in tqdm(data.items(), desc="Processing", ncols=100):
-    if "Qwen1.5" in model_name:
-      prompt = "<|im_start|>user\n" + value['prompt'] + "\n<|im_start|>assistant\n"
-      prompts.append(prompt)
-    else:
-      prompt = value['prompt']
-      prompts.append(prompt)
+    prompt = value['prompt']
+    prompts.append(prompt)
 
   # llm inference 
   sampling_params = SamplingParams(temperature=0, top_p=0.95, top_k=-1, max_tokens=8192)
@@ -41,7 +36,6 @@ def main(args):
 if __name__ == "__main__":
   parser = argparse.ArgumentParser()
   parser.add_argument('--model_path', type=str, default = None)
-  parser.add_argument('--model_name', type=str, default = None)
   parser.add_argument('--prompt_path', type=str, default = None)
   parser.add_argument('--model_result_path', type=str, default = None)
   args = parser.parse_args()
