@@ -7,11 +7,11 @@ import argparse
 def main(args):
   model_path = args.model_path
   model_name = args.model_name
-  input_file = args.input_file
-  output_file = args.output_file
+  prompt_path = args.prompt_path
+  model_result_path = args.model_result_path
 
   # input data
-  with open(input_file, 'r') as f:
+  with open(prompt_path, 'r') as f:
     data = json.load(f)
   prompts = []
   for key, value in tqdm(data.items(), desc="Processing", ncols=100):
@@ -33,7 +33,7 @@ def main(args):
     data[key]['answer'] = outputs[i].outputs[0].text
     data[key]['acc'] = 0
     i += 1
-  with open(output_file, 'w', encoding='utf-8') as f:
+  with open(model_result_path, 'w', encoding='utf-8') as f:
     json.dump(data, f, indent=4)
 
 
@@ -42,7 +42,7 @@ if __name__ == "__main__":
   parser = argparse.ArgumentParser()
   parser.add_argument('--model_path', type=str, default = None)
   parser.add_argument('--model_name', type=str, default = None)
-  parser.add_argument('--input_file', type=str, default = None)
-  parser.add_argument('--output_file', type=str, default = None)
+  parser.add_argument('--prompt_path', type=str, default = None)
+  parser.add_argument('--model_result_path', type=str, default = None)
   args = parser.parse_args()
   main(args)
