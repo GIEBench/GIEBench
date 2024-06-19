@@ -11,13 +11,6 @@ Initially, a collection of controversial topics is developed using web resources
 </div>
 ## Example
 
-Here are a example:
-
-<div style="text-align: center;">
-  <img src="COT-Prompt.png" width="50%">
-  <img src="ID-Prompt.png" width="50%">
-  <img src="Raw-Prompt.png" width="50%">
-</div>
 
 We analyze the extent to which LLMs understand the standpoint of the given identity by comparing the difference in accuracy between CoT-Prompt and Raw-Prompt.
 
