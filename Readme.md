@@ -30,8 +30,8 @@ The results revealed that although certain LLMs can largely understand the user'
 ```python
 pip install -r requirements.txt
 ```
-
-
+## Download
+First, download our data in the `data` folder, `YOUR_PROMPT_PATH` stands for your data path.
 ## Inference
 You can perform inference on Your model to be tested using the following command:
 ```python
@@ -60,6 +60,7 @@ python eval.py --model_result_path YOUR_MODEL_RESULT_PATH --folder_path YOUR_RES
 `--folder_path`: This parameter indicates the path to your model's results folder.
 
 `--csv_path`: This parameter indicates the path to the csv file that holds all your model score results.
+Finally, the csv file records the correctness of your model with the Prompt you chose.
 ## Citation
 
 **BibTeX:**
