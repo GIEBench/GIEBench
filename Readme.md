@@ -46,10 +46,6 @@ During inference, a temporary file .jsonl.tmp will be saved. If the inference is
 
 After inference is complete, you can check the response field in the saved JSONL file in `output_dir`. Normally, this field should be of string type; if it is of dict type, the error field will contain error information. Rerunning the command can directly re-infer the issues that caused errors.
 
-### Run Custom Model
-`--model_name` needs to align with the filenames in the `infer/models` directory. We have some built-in models available for direct selection. 
-
-If you add a `custom model` to be tested, you need to refer to the files in the `infer/models` directory to add a new `.py` file and add your config in [\_\_init\_\_.py](infer/models/__init__.py).
 
 
 ## Evaluation
