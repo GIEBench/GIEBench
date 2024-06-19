@@ -15,12 +15,12 @@ Initially, a collection of controversial topics is developed using web resources
 We analyze the extent to which LLMs understand the standpoint of the given identity by comparing the difference in accuracy between CoT-Prompt and Raw-Prompt.
 
 <div style="text-align: center;">
-  <img src="Raw2COT.png" width="50%">
+  <img src="Raw2COT.png" width="80%">
 </div>
 
 We analyze the empathy of LLMs towards the given identity standpoint by comparing the difference in accuracy between ID-Prompt and Raw-Prompt.
 <div style="text-align: center;">
-  <img src="Raw2ID.png" width="50%">
+  <img src="Raw2ID.png" width="80%">
 </div>
 
 The results revealed that although certain LLMs can largely understand the user's identity standpoint, they do not spontaneously exhibit empathy when not explicitly instructed to consider the user's perspective. This highlights the shortcomings of current alignment techniques.
