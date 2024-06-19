@@ -90,7 +90,7 @@ def to_csv(folder_p, csv_p):
 	df = pd.DataFrame(data,columns=category_list,index=model_list)
 	df.to_csv(csv_p)
 
-def main():
+def main(args):
 	model_result_path = args.model_result_path
 	folder_path = args.folder_path
 	csv_path = args.csv_path
