@@ -38,12 +38,17 @@ You can perform inference on Your model to be tested using the following command
 python infer/infer.py --model_path YOUR_MODEL_PATH --prompt_path YOUR_PROMPT_PATH --model_result_path YOUR_MODEL_RESULT_PATH
 ```
 
-`--model_path`: 
+`--model_path`: This parameter indicates the path where your model is saved.
 
-`--prompt_path`: 
+`--prompt_path`: This parameter indicates the path where your Prompt file is saved.
 
-After inference is complete, you can check the response field in the saved JSONL file in `model_result_path`. 
+If your model requires an api to be called, use the following command:
 
+```python
+python infer/api_infer.py --prompt_path YOUR_PROMPT_PATH --model_result_path YOUR_MODEL_RESULT_PATH
+```
+
+After inference is complete, you can check the response field in the saved JSON file in `model_result_path`. 
 
 
 ## Evaluation
@@ -52,7 +57,9 @@ After you finish inference and confirm there are no error messages, please run t
 ```
 python eval.py --model_result_path YOUR_MODEL_RESULT_PATH --folder_path YOUR_RESULT_FOLDER_PATH --csv_path YOUR_CSV_PATH
 ```
+`--folder_path`: This parameter indicates the path to your model's results folder.
 
+`--csv_path`: This parameter indicates the path to the csv file that holds all your model score results.
 ## Citation
 
 **BibTeX:**
