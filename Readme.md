@@ -9,7 +9,7 @@ Initially, a collection of controversial topics is developed using web resources
 <div style="text-align: center;">
   <img src="pipline.png" width="100%">
 </div>
-## Example
+
 
 
 We analyze the extent to which LLMs understand the standpoint of the given identity by comparing the difference in accuracy between CoT-Prompt and Raw-Prompt.
