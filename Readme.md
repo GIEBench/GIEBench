@@ -33,18 +33,16 @@ pip install -r requirements.txt
 
 
 ## Inference
-You can directly perform inference on `` model to be tested using the following command:
+You can perform inference on Your model to be tested using the following command:
 ```python
-python infer/infer.py --model_name yi-vl-6b-chat --mode none --output_dir ./results
+python infer/infer.py --model_path YOUR_MODEL_PATH --prompt_path YOUR_PROMPT_PATH --model_result_path YOUR_MODEL_RESULT_PATH
 ```
 
-`--mode`: We provide various evaluation modes, including no additional prompts (none), keyword-based prompts (domain, emotion, rhetoric), chain-of-thought prompts (cot), and few-shot prompts (1-shot, 2-shot, 3-shot). You can use the mode parameter to select which evaluation modes to use, with the option to choose multiple modes. By default, all modes will be evaluated in a loop.
+`--model_path`: 
 
-`--infer_limit`: The input for this parameter is an integer, used to limit the number of problems for this inference, aimed at saving costs while debugging API, default is unlimited.
+`--prompt_path`: 
 
-During inference, a temporary file .jsonl.tmp will be saved. If the inference is unexpectedly interrupted, you can directly rerun the command to resume inference from the breakpoint.
-
-After inference is complete, you can check the response field in the saved JSONL file in `output_dir`. Normally, this field should be of string type; if it is of dict type, the error field will contain error information. Rerunning the command can directly re-infer the issues that caused errors.
+After inference is complete, you can check the response field in the saved JSONL file in `model_result_path`. 
 
 
 
@@ -52,14 +50,9 @@ After inference is complete, you can check the response field in the saved JSONL
 
 After you finish inference and confirm there are no error messages, please run the answer parsing and evaluation pipeline as follows: 
 ```
-python eval.py --model_name yi-vl-6b-chat --mode none --output_dir ./results --save_dir ./results_with_status
+python eval.py --model_result_path YOUR_MODEL_RESULT_PATH --folder_path YOUR_RESULT_FOLDER_PATH --csv_path YOUR_CSV_PATH
 ```
-Detailed evaluation results can be found in the `save_dir`.
 
-Alternatively, you can use the following command to evaluate the inference results of all models:
-```
-python eval.py --evaluate_all --output_dir ./results --save_dir ./results_with_status
-```
 ## Citation
 
 **BibTeX:**
