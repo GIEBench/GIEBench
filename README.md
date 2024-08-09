@@ -63,18 +63,40 @@ After inference is complete, you can check the response field in the saved JSON 
 
 ## Evaluation
 
-After you finish inference and confirm there are no error messages, please run the answer parsing and evaluation pipeline as follows: 
+Once you have completed the inference and ensured there are no error messages, you can proceed with the answer parsing and evaluation pipeline using the following command:
 ```
 python eval.py --model_result_path YOUR_MODEL_RESULT_PATH --folder_path YOUR_RESULT_FOLDER_PATH --csv_path YOUR_CSV_PATH
 ```
-`--folder_path`: This parameter indicates the path to your model's results folder.
+`--model_result_path`: Specifies the path to a single JSON file containing the model results. This parameter is optional if you want to evaluate a single results file.
 
-`--csv_path`: This parameter indicates the path to the csv file that holds all your model score results.
-Finally, the csv file records the correctness of your model with the Prompt you chose.
+`--folder_path`: This parameter specifies the path to the folder containing your model's result files. Use this if you have multiple result files and want to process them all at once.
+
+`--csv_path`: This parameter indicates the path where the CSV file that consolidates all your model's score results will be saved. This file will record the correctness of responses based on the prompts used during inference.
+
+### Description of the Evaluation Pipeline
+- Data Loading: The script reads JSON data from the specified results file or files within the specified folder. Each file should contain model responses along with the correct answers and category information for each prompt.
+
+- Data Processing: It performs a detailed analysis by comparing the model's responses to the correct answers, calculates the accuracy for each category, and overall accuracy across all prompts.
+
+- Results Compilation: The evaluated data is then consolidated into a CSV file. This file includes accuracy statistics by category and an overall accuracy measurement, providing a clear view of the model's performance.
+
+### Output
+The output CSV file will contain the following columns:
+
+- Each category name as a separate column with the corresponding accuracy.
+- An 'overall' column that shows the overall accuracy across all categories.
+This structured and detailed CSV file allows for easy visualization and further analysis of the model's performance across different categories and prompts.
 ## Citation
 
 **BibTeX:**
-
-
-
+```
+@misc{wang2024giebenchholisticevaluationgroup,
+      title={GIEBench: Towards Holistic Evaluation of Group Identity-based Empathy for Large Language Models}, 
+      author={Leyan Wang and Yonggang Jin and Tianhao Shen and Tianyu Zheng and Xinrun Du and Chenchen Zhang and Wenhao Huang and Jiaheng Liu and Shi Wang and Ge Zhang and Liuyu Xiang and Zhaofeng He},
+      year={2024},
+      eprint={2406.14903},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2406.14903}, 
+}
 ```
