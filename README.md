@@ -32,21 +32,31 @@ pip install -r requirements.txt
 ```
 ## Download
 First, download our data in the `data` folder, `YOUR_PROMPT_PATH` stands for your data path.
-## Inference
-You can perform inference on Your model to be tested using the following command:
+## Local Model Inference
+If you need to perform inference using a language model saved locally, use the following command:
 ```python
-python infer/infer.py --model_path YOUR_MODEL_PATH --prompt_path YOUR_PROMPT_PATH --model_result_path YOUR_MODEL_RESULT_PATH
+python infer.py --model_path YOUR_MODEL_PATH --prompt_path YOUR_PROMPT_PATH --model_result_path YOUR_MODEL_RESULT_PATH
 ```
 
-`--model_path`: This parameter indicates the path where your model is saved.
+`--model_path`: Specifies the path where your model file is stored.
 
-`--prompt_path`: This parameter indicates the path where your Prompt file is saved.
+`--prompt_path`: Specifies the path to the JSON file containing inference prompts.
 
+`--model_result_path`: Specifies the path to save the generated results in a JSON file.
+
+
+## API-based Inference
 If your model requires an api to be called, use the following command:
-
 ```python
-python infer/api_infer.py --prompt_path YOUR_PROMPT_PATH --model_result_path YOUR_MODEL_RESULT_PATH
+python api_infer.py --config_path YOUR_CONFIG_PATH --model YOUR_MODEL --prompt_path YOUR_PROMPT_PATH --model_result_path YOUR_MODEL_RESULT_PATH
 ```
+`--config_path`: Specifies the path to the configuration file, which contains the API key and base URL.
+
+`--model`: Specifies the language model to use (e.g., gpt-4-turbo).
+
+`--prompt_path`: Specifies the path to the JSON file containing inference prompts.
+
+`--model_result_path`: Specifies the path to save the generated results in a JSON file.
 
 After inference is complete, you can check the response field in the saved JSON file in `model_result_path`. 
 
